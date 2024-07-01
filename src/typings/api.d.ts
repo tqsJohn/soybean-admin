@@ -52,7 +52,8 @@ declare namespace Api {
    */
   namespace Auth {
     interface LoginToken {
-      token: string;
+      access_token: string;
+      client_id: string;
       refreshToken: string;
     }
 

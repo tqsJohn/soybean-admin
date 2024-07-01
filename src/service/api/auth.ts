@@ -1,5 +1,7 @@
 import { request } from '../request';
 
+const clientId = 'e5cd7e4891bf95d1d19206ce24a7b32e';
+
 /**
  * Login
  *
@@ -8,18 +10,23 @@ import { request } from '../request';
  */
 export function fetchLogin(username: string, password: string) {
   return request<Api.Auth.LoginToken>({
-    url: '/login',
+    url: '/auth/login',
     method: 'post',
     data: {
       username,
-      password
+      password,
+      clientId,
+      grantType: 'password'
     }
   });
 }
 
 /** Get user info */
 export function fetchGetUserInfo() {
-  return request<Api.Auth.UserInfo>({ url: '/getInfo' });
+  return request<Api.Auth.UserInfo>({
+    url: '/system/user/getInfo',
+    method: 'get'
+  });
 }
 
 /**

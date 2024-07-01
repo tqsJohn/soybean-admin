@@ -12,10 +12,7 @@ const { baseURL, otherBaseURL } = getServiceBaseURL(import.meta.env, isHttpProxy
 
 export const request = createFlatRequest<App.Service.Response, RequestInstanceState>(
   {
-    baseURL,
-    headers: {
-      apifoxToken: 'XL299LiMEDZ0H5h3A29PxwQXdMJqWyY2'
-    }
+    baseURL
   },
   {
     async onRequest(config) {
@@ -24,7 +21,12 @@ export const request = createFlatRequest<App.Service.Response, RequestInstanceSt
       // set token
       const token = localStg.get('token');
       const Authorization = token ? `Bearer ${token}` : null;
-      Object.assign(headers, { Authorization });
+
+      // set clientid
+      const clientid = 'e5cd7e4891bf95d1d19206ce24a7b32e'; // 替换为实际的 clientid 值
+
+      // 合并 Authorization 和 clientid 到 headers
+      Object.assign(headers, { Authorization, clientid });
 
       return config;
     },
