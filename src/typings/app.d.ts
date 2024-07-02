@@ -234,7 +234,7 @@ declare namespace App {
   namespace I18n {
     type RouteKey = import('@elegant-router/types').RouteKey;
 
-    type LangType = 'en-US' | 'zh-CN';
+    type LangType = 'en-US' | 'zh-CN' | 'zh-TW';
 
     type LangOption = {
       label: string;
@@ -405,19 +405,6 @@ declare namespace App {
           bindWeChat: {
             title: string;
           };
-        };
-        about: {
-          title: string;
-          introduction: string;
-          projectInfo: {
-            title: string;
-            version: string;
-            latestBuildTime: string;
-            githubLink: string;
-            previewLink: string;
-          };
-          prdDep: string;
-          devDep: string;
         };
         home: {
           greeting: string;

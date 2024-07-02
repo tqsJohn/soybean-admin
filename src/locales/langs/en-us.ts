@@ -211,19 +211,6 @@ const local: App.I18n.Schema = {
         title: 'Bind WeChat'
       }
     },
-    about: {
-      title: 'About',
-      introduction: `SoybeanAdmin is an elegant and powerful admin template, based on the latest front-end technology stack, including Vue3, Vite5, TypeScript, Pinia and UnoCSS. It has built-in rich theme configuration and components, strict code specifications, and an automated file routing system. In addition, it also uses the online mock data solution based on ApiFox. SoybeanAdmin provides you with a one-stop admin solution, no additional configuration, and out of the box. It is also a best practice for learning cutting-edge technologies quickly.`,
-      projectInfo: {
-        title: 'Project Info',
-        version: 'Version',
-        latestBuildTime: 'Latest Build Time',
-        githubLink: 'Github Link',
-        previewLink: 'Preview Link'
-      },
-      prdDep: 'Production Dependency',
-      devDep: 'Development Dependency'
-    },
     home: {
       greeting: 'Good morning, {userName}, today is another day full of vitality!',
       weatherDesc: 'Today is cloudy to clear, 20℃ - 25℃!',

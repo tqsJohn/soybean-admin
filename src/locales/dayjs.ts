@@ -11,6 +11,7 @@ import { localStg } from '@/utils/storage';
 export function setDayjsLocale(lang: App.I18n.LangType = 'zh-CN') {
   const localMap = {
     'zh-CN': 'zh-cn',
+    'zh-TW': 'zh-tw',
     'en-US': 'en'
   } satisfies Record<App.I18n.LangType, string>;
 
