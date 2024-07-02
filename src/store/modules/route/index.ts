@@ -246,6 +246,7 @@ export const useRouteStore = defineStore(SetupStoreId.Route, () => {
 
   /** Init dynamic auth route */
   async function initDynamicAuthRoute() {
+    console.log('初始化路由');
     const { data, error } = await fetchGetUserRoutes();
 
     if (!error) {
