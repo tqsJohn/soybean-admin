@@ -38,9 +38,9 @@ export function useTable<A extends NaiveUI.TableApiFn>(config: NaiveUI.NaiveTabl
     apiParams,
     columns: config.columns,
     transformer: res => {
-      const { records = [], current = 1, size = 10, total = 0 } = res.data || {};
+      const { rows = [], current = 1, size = 10, total = 0 } = res.data || {};
 
-      const recordsWithIndex = records.map((item, index) => {
+      const recordsWithIndex = rows.map((item, index) => {
         return {
           ...item,
           index: (current - 1) * size + index + 1

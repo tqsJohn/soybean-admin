@@ -17,7 +17,7 @@ declare namespace Api {
 
     /** common params of paginating query list data */
     interface PaginatingQueryRecord<T = any> extends PaginatingCommonParams {
-      records: T[];
+      rows: T[];
     }
 
     /**
@@ -124,27 +124,54 @@ declare namespace Api {
 
     /** user */
     type User = Common.CommonRecord<{
-      /** user name */
+      /** 用户id */
+      userId: number;
+      /** 租户id */
+      tenantId: number | null;
+      /** 部门id */
+      deptId: number;
+      /** 用户名 */
       userName: string;
-      /** user gender */
-      userGender: UserGender | null;
-      /** user nick name */
+      /** 昵称 */
       nickName: string;
-      /** user phone */
-      userPhone: string;
-      /** user email */
-      userEmail: string;
-      /** user role code collection */
-      userRoles: string[];
+      /** 用户类型 */
+      userType: string | null;
+      /** 邮箱 */
+      email: string;
+      /** 手机号码 */
+      phonenumber: string;
+      /** 性别 */
+      sex: string;
+      /** 头像 */
+      avatar: string | null;
+      /** 状态 */
+      status: string;
+      /** 登录IP */
+      loginIp: string;
+      /** 登录日期 */
+      loginDate: string;
+      /** 备注 */
+      remark: string;
+      /** 创建时间 */
+      createTime: string;
+      /** 部门名称 */
+      deptName: string;
+      /** 角色 */
+      roles: any | null;
+      /** 角色ID数组 */
+      roleIds: any | null;
+      /** 岗位ID数组 */
+      postIds: any | null;
+      /** 角色ID */
+      roleId: any | null;
     }>;
 
-    /** user search params */
     type UserSearchParams = CommonType.RecordNullable<
-      Pick<Api.SystemManage.User, 'userName' | 'userGender' | 'nickName' | 'userPhone' | 'userEmail' | 'status'> &
-        CommonSearchParams
+      Pick<Api.SystemManage.User, 'userName' | 'nickName' | 'email' | 'status'> & CommonSearchParams
     >;
 
     /** user list */
+
     type UserList = Common.PaginatingQueryRecord<User>;
 
     /**

@@ -310,10 +310,12 @@ const local: App.I18n.Schema = {
         userEmail: '郵箱',
         userStatus: '用戶狀態',
         userRole: '用戶角色',
+        jobNum: '工號',
         form: {
           userName: '請輸入用戶名',
+          jobNum: '請輸入工號',
           userGender: '請選擇性別',
-          nickName: '請輸入昵稱',
+          nickName: '請輸入姓名',
           userPhone: '請輸入手機號',
           userEmail: '請輸入郵箱',
           userStatus: '請選擇用戶狀態',

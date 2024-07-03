@@ -505,8 +505,10 @@ declare namespace App {
             userEmail: string;
             userStatus: string;
             userRole: string;
+            jobNum: string;
             form: {
               userName: string;
+              jobNum: string;
               userGender: string;
               nickName: string;
               userPhone: string;
@@ -668,14 +670,35 @@ declare namespace App {
     }
 
     /** The backend service response data */
-    type Response<T = unknown> = {
+    // type Response<T = unknown> = {
+    //   /** The backend service response code */
+    //   code: string;
+    //   /** The backend service response message */
+    //   msg: string;
+    //   /** The backend service response data */
+    //   data: T;
+    // };
+
+    // 基础响应类型
+    type BaseResponse<T = unknown> = {
       /** The backend service response code */
       code: string;
       /** The backend service response message */
       msg: string;
       /** The backend service response data */
-      data: T;
+      data?: T;
     };
+
+    // 列表响应类型
+    type ListResponse<T = unknown> = BaseResponse<T> & {
+      /** The backend service response rows */
+      rows: T;
+      /** The total number of items */
+      total: number;
+    };
+
+    // 联合类型，表示可能的响应类型
+    type Response<T = unknown> = BaseResponse<T> | ListResponse<T>;
 
     /** The demo backend service response data */
     type DemoResponse<T = unknown> = {

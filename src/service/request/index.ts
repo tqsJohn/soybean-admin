@@ -10,6 +10,10 @@ import type { RequestInstanceState } from './type';
 const isHttpProxy = import.meta.env.DEV && import.meta.env.VITE_HTTP_PROXY === 'Y';
 const { baseURL, otherBaseURL } = getServiceBaseURL(import.meta.env, isHttpProxy);
 
+function isListResponse<T>(response: App.Service.Response<T>): response is App.Service.ListResponse<T> {
+  return 'rows' in response && 'total' in response;
+}
+
 export const request = createFlatRequest<App.Service.Response, RequestInstanceState>(
   {
     baseURL
@@ -99,7 +103,19 @@ export const request = createFlatRequest<App.Service.Response, RequestInstanceSt
       return null;
     },
     transformBackendResponse(response) {
-      return response.data.data;
+      const backendResponse = response.data;
+
+      if (isListResponse(backendResponse)) {
+        // 处理列表响应
+        return {
+          rows: backendResponse.rows,
+          total: backendResponse.total
+        };
+      }
+      // 处理基础响应
+      return backendResponse.data;
+
+      // return response.data.data;
     },
     onError(error) {
       // when the request is fail, you can show error message
